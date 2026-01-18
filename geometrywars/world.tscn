@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpnsyfr06tf3"]
+[gd_scene load_steps=5 format=3 uid="uid://cpnsyfr06tf3"]
 
 [ext_resource type="PackedScene" uid="uid://dvcapk1d3yg1j" path="res://player.tscn" id="1_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://nopo3f04yt3h" path="res://icon.svg" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://ciapqdtcptdrm" path="res://bullet.tscn" id="3_tlwt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(67, 1331)
@@ -36,3 +37,6 @@ shape = SubResource("RectangleShape2D_tlwt5")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
 position = Vector2(600, -50.1875)
 shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="Bullet" parent="." instance=ExtResource("3_tlwt5")]
+position = Vector2(978, 430)

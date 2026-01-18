@@ -1,0 +1,17 @@
+class_name Bullet extends Node2D
+
+
+var speed = 800
+var lifetime = 2.0
+
+
+func _physics_process(delta):
+	position += transform.x * speed * delta
+	lifetime -= delta
+	if lifetime <= 0:
+		queue_free()
+
+func _on_body_entered(body):
+	if body.is_in_group("enemies"):
+		body.take_damage()
+		queue_free()
