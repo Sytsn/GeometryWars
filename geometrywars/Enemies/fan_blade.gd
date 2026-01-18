@@ -1,16 +1,23 @@
-class_name Diamond extends Enemy
+class_name FanBlade extends Enemy
 
 
 @export var speed = 100
 @onready var player: Player = $"../Player"
 
+var move_dir: Vector2
+
+
+func _ready() -> void:
+	move_dir = position.direction_to(player.position)
+	
 
 func _physics_process(delta: float) -> void:
 	move()
+	#print(move_dir)
 
 
 func move():
-	velocity = position.direction_to(player.position) * speed
+	velocity = move_dir * speed
 	move_and_slide()
 #
 #func _on_body_entered(body: Node2D) -> void:
@@ -21,6 +28,6 @@ func move():
 	#die()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		body.is_dead = true

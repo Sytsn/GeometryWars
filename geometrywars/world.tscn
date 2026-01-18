@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpnsyfr06tf3"]
+[gd_scene load_steps=8 format=3 uid="uid://cpnsyfr06tf3"]
 
 [ext_resource type="Script" uid="uid://dig1a6d4nqndq" path="res://world.gd" id="1_036b0"]
 [ext_resource type="PackedScene" uid="uid://dvcapk1d3yg1j" path="res://player.tscn" id="1_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://bfwdv7r7vruuo" path="res://Enemies/Diamond.tscn" id="2_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://nopo3f04yt3h" path="res://icon.svg" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://ciapqdtcptdrm" path="res://bullet.tscn" id="3_tlwt5"]
+[ext_resource type="Script" uid="uid://t8fy3lh76w3e" path="res://border_wall.gd" id="4_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://t6ds4jcxrhhi" path="res://Enemies/FanBlade.tscn" id="7_pkg7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(67, 1331)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pkg7o"]
+a = Vector2(587, 562)
+b = Vector2(-576, 562)
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_036b0")
@@ -23,6 +27,7 @@ texture = ExtResource("2_fj7yv")
 
 [node name="Border" type="StaticBody2D" parent="."]
 position = Vector2(960, 540)
+script = ExtResource("4_pkg7o")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
 position = Vector2(-600, -54.375)
@@ -42,11 +47,31 @@ shape = SubResource("RectangleShape2D_tlwt5")
 position = Vector2(600, -50.1875)
 shape = SubResource("RectangleShape2D_tlwt5")
 
-[node name="Bullet" parent="." instance=ExtResource("3_tlwt5")]
-position = Vector2(978, 430)
+[node name="BottomWall" type="Area2D" parent="Border"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_aqk2v")]
-position = Vector2(864, 422)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/BottomWall"]
+shape = SubResource("SegmentShape2D_pkg7o")
+
+[node name="LeftWall" type="Area2D" parent="Border"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/LeftWall"]
+shape = SubResource("SegmentShape2D_pkg7o")
+
+[node name="TopWall" type="Area2D" parent="Border"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/TopWall"]
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_pkg7o")
+
+[node name="RightWall" type="Area2D" parent="Border"]
+position = Vector2(0, -1)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/RightWall"]
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_pkg7o")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
@@ -63,3 +88,29 @@ position = Vector2(454, 1024)
 
 [node name="Point4" type="Node2D" parent="SpawnPoints"]
 position = Vector2(1449, 1038)
+
+[node name="FanBlade" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(772, 368)
+
+[node name="FanBlade2" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(645, 528)
+
+[node name="FanBlade3" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(789, 539)
+
+[node name="FanBlade4" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(1286, 412)
+
+[node name="FanBlade5" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(1296, 569)
+
+[node name="FanBlade6" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(1288, 648)
+
+[node name="FanBlade7" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(673, 685)
+
+[connection signal="body_entered" from="Border/BottomWall" to="Border" method="_on_bottom_wall_body_entered"]
+[connection signal="body_entered" from="Border/LeftWall" to="Border" method="_on_left_wall_body_entered"]
+[connection signal="body_entered" from="Border/TopWall" to="Border" method="_on_top_wall_body_entered"]
+[connection signal="body_entered" from="Border/RightWall" to="Border" method="_on_right_wall_body_entered"]

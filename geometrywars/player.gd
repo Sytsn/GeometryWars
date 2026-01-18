@@ -9,11 +9,16 @@ class_name Player extends CharacterBody2D
 @onready var bullet: PackedScene = preload("res://bullet.tscn")
 @onready var world = $"../"
 @onready var shoot_timer: Timer = $ShootTimer  # Add Timer node as child
+@onready var dead_label = $Label
 
 var shoot_cooldown = 0.0
 
+var is_dead: bool = false
+
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		dead_label.visible = true
 	shoot_cooldown = max(0, shoot_cooldown - delta)  # Count down
 	get_input(delta)
 	move_and_slide()
