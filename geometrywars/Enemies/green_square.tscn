@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqie8owgoxngu"]
+
+[ext_resource type="Script" uid="uid://dri5k1kw1tpbu" path="res://Enemies/green_square.gd" id="1_mb4rx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3turg"]
+radius = 7.81025
+
+[sub_resource type="QuadMesh" id="QuadMesh_3turg"]
+size = Vector2(28, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsbr5"]
+radius = 17.0294
+
+[node name="GreenSquare" type="CharacterBody2D"]
+collision_layer = 195
+collision_mask = 195
+script = ExtResource("1_mb4rx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3turg")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
+modulate = Color(0.187344, 0.682337, 0.259628, 1)
+mesh = SubResource("QuadMesh_3turg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 192
+collision_mask = 192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fsbr5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

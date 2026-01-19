@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+mouse_cursor/custom_image="uid://c82xik1dpsi6f"
+mouse_cursor/custom_image_hotspot=Vector2(100, 100)
 
 [input]
 

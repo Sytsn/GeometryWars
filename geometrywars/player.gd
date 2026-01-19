@@ -2,11 +2,11 @@ class_name Player extends CharacterBody2D
 
 @export var speed = 350
 @export var rot_speed = 10
-@export var fire_rate = 0.15
+@export var fire_rate = 0.1
 
 @onready var pivot: Node2D = $Pivot
-@onready var mesh: MeshInstance2D = $MeshInstance2D
-@onready var bullet: PackedScene = preload("res://bullet.tscn")
+@onready var mesh: MeshInstance2D = $CollisionShape2D/MeshInstance2D
+@onready var bullet: PackedScene = preload("res://Bullets/DoubleBullet.tscn")
 @onready var world = $"../"
 @onready var shoot_timer: Timer = $ShootTimer  # Add Timer node as child
 @onready var dead_label = $Label
@@ -40,3 +40,15 @@ func shoot():
 	instance.rotation = pivot.rotation
 	
 	shoot_cooldown = fire_rate  # Reset cooldown
+
+
+func _on_player_aim_body_entered(body: Node2D) -> void:
+	if body is GreenSquare:
+		body.move_dir = position.direction_to(body.position).orthogonal()
+		body.is_moving_away = true
+		body.speed = 350
+
+
+func _on_player_aim_body_exited(body: Node2D) -> void:
+	body.is_moving_away = false
+	body.speed = 200

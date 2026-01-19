@@ -18,10 +18,10 @@ script = ExtResource("1_8a4mh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_mk18r")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
+modulate = Color(0.0156863, 1, 1, 1)
 mesh = SubResource("QuadMesh_tt7e2")
 
 [node name="Area2D" type="Area2D" parent="."]

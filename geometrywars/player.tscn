@@ -4,7 +4,6 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 radius = 15.0
-height = 54.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -19,8 +18,14 @@ script = ExtResource("1_4flbx")
 shape = SubResource("CapsuleShape2D_4flbx")
 one_way_collision = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
 scale = Vector2(26.25, 25.875)
+mesh = SubResource("CapsuleMesh_4flbx")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="CollisionShape2D/MeshInstance2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+scale = Vector2(1.18095, 1.08213)
 mesh = SubResource("CapsuleMesh_4flbx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -35,6 +40,14 @@ rotation = -1.5708
 scale = Vector2(15.5, 10.5)
 mesh = SubResource("PrismMesh_4flbx")
 
+[node name="PlayerAim" type="Area2D" parent="Pivot"]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/PlayerAim"]
+position = Vector2(68, 0)
+polygon = PackedVector2Array(1159, 156, 1153, -151, -49, -20, -49, 19)
+
 [node name="ShootTimer" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
@@ -45,3 +58,6 @@ offset_right = 65.0
 offset_bottom = -176.0
 theme_override_font_sizes/font_size = 50
 text = "DEAD"
+
+[connection signal="body_entered" from="Pivot/PlayerAim" to="." method="_on_player_aim_body_entered"]
+[connection signal="body_exited" from="Pivot/PlayerAim" to="." method="_on_player_aim_body_exited"]

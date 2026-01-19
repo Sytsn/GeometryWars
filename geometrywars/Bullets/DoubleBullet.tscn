@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://13lk358u4a2u"]
+
+[ext_resource type="PackedScene" uid="uid://ciapqdtcptdrm" path="res://Bullets/bullet.tscn" id="1_ktrwd"]
+
+[node name="DoubleBullet" type="Node2D"]
+
+[node name="Bullet" parent="." instance=ExtResource("1_ktrwd")]
+position = Vector2(0, -2.5)
+
+[node name="Bullet2" parent="." instance=ExtResource("1_ktrwd")]
+position = Vector2(0, 2.5)

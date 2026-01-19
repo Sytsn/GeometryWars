@@ -21,6 +21,7 @@ rotation = 0.785398
 shape = SubResource("CircleShape2D_y5hem")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
+modulate = Color(1, 0.0588235, 1, 1)
 position = Vector2(-0.707107, 3.53553)
 mesh = SubResource("PrismMesh_if4iv")
 
