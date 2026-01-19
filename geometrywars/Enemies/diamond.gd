@@ -5,6 +5,10 @@ class_name Diamond extends Enemy
 @onready var player: Player = $"../Player"
 
 
+func _ready() -> void:
+	point_value = 100
+
+
 func _physics_process(delta: float) -> void:
 	move()
 

@@ -27,4 +27,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Quit to Menu"
 
+[node name="Points" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="pressed" from="QuitToMenu" to="." method="_on_quit_to_menu_pressed"]

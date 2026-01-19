@@ -13,4 +13,6 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		Global.points += body.point_value
 	body.queue_free()

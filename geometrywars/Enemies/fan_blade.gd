@@ -9,11 +9,11 @@ var move_dir: Vector2
 
 func _ready() -> void:
 	move_dir = position.direction_to(player.position)
+	point_value = 100
 	
 
 func _physics_process(delta: float) -> void:
 	move()
-	#print(move_dir)
 
 
 func move():

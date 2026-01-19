@@ -7,6 +7,7 @@ class_name GreenSquare extends CharacterBody2D
 var move_dir: Vector2
 var is_moving_away: bool = false
 
+
 func _physics_process(delta: float) -> void:
 	move()
 

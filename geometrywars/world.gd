@@ -15,6 +15,7 @@ var diamond_count: int = 0
 
 func _ready() -> void:
 	get_tree().paused = true
+	Global.points = 0
 
 
 func _process(delta: float) -> void:

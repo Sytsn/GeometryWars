@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds84stibue3pg"]
+
+[ext_resource type="Script" uid="uid://gmhcefhexaoo" path="res://Bullets/triple_shot.gd" id="1_p18x3"]
+[ext_resource type="PackedScene" uid="uid://ciapqdtcptdrm" path="res://Bullets/bullet.tscn" id="1_xe3o4"]
+
+[node name="TripleShot" type="Node2D" node_paths=PackedStringArray("bullets")]
+script = ExtResource("1_p18x3")
+bullets = [NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3")]
+
+[node name="Bullet" parent="." instance=ExtResource("1_xe3o4")]
+position = Vector2(1.49012e-08, -5)
+rotation = -0.174533
+
+[node name="Bullet2" parent="." instance=ExtResource("1_xe3o4")]
+
+[node name="Bullet3" parent="." instance=ExtResource("1_xe3o4")]
+position = Vector2(0, 5)
+rotation = 0.174533

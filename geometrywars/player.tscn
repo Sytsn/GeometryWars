@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvcapk1d3yg1j"]
+[gd_scene load_steps=8 format=3 uid="uid://dvcapk1d3yg1j"]
 
 [ext_resource type="Script" uid="uid://xav40dbpkqr0" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://13lk358u4a2u" path="res://Bullets/DoubleBullet.tscn" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://coad1hs7d64an" path="res://Menus/death_menu.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://ds84stibue3pg" path="res://Bullets/triple_shot.tscn" id="3_hqtel"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 radius = 15.0
@@ -14,6 +16,7 @@ radius = 15.0
 z_index = 100
 collision_layer = 128
 script = ExtResource("1_4flbx")
+bullet_array = Array[PackedScene]([ExtResource("2_i3pqv"), ExtResource("3_hqtel")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4flbx")
@@ -61,6 +64,13 @@ theme_override_font_sizes/font_size = 50
 text = "DEAD"
 
 [node name="DeathMenu" parent="." instance=ExtResource("2_onrkg")]
+
+[node name="Points" type="Label" parent="."]
+offset_left = -458.0
+offset_top = -257.0
+offset_right = -403.0
+offset_bottom = -234.0
+text = "000000"
 
 [connection signal="body_entered" from="Pivot/PlayerAim" to="." method="_on_player_aim_body_entered"]
 [connection signal="body_exited" from="Pivot/PlayerAim" to="." method="_on_player_aim_body_exited"]
