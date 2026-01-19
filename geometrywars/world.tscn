@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpnsyfr06tf3"]
+[gd_scene load_steps=10 format=3 uid="uid://cpnsyfr06tf3"]
 
 [ext_resource type="Script" uid="uid://dig1a6d4nqndq" path="res://world.gd" id="1_036b0"]
 [ext_resource type="PackedScene" uid="uid://dvcapk1d3yg1j" path="res://player.tscn" id="1_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://nopo3f04yt3h" path="res://icon.svg" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://t8fy3lh76w3e" path="res://border_wall.gd" id="4_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dqie8owgoxngu" path="res://Enemies/green_square.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://4f03ex7hpjet" path="res://Menus/main_menu.tscn" id="7_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://t6ds4jcxrhhi" path="res://Enemies/FanBlade.tscn" id="7_pkg7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
@@ -131,6 +132,13 @@ position = Vector2(680, 663)
 
 [node name="FanBlade9" parent="." instance=ExtResource("7_pkg7o")]
 position = Vector2(845, 869)
+
+[node name="MainMenu" parent="." instance=ExtResource("7_gbfbk")]
+z_index = 100
+offset_left = 960.0
+offset_top = 524.0
+offset_right = 960.0
+offset_bottom = 524.0
 
 [connection signal="body_entered" from="Border/BottomWall" to="Border" method="_on_bottom_wall_body_entered"]
 [connection signal="body_entered" from="Border/LeftWall" to="Border" method="_on_left_wall_body_entered"]

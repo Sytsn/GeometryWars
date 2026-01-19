@@ -13,6 +13,10 @@ var index: int = 0
 var diamond_count: int = 0
 
 
+func _ready() -> void:
+	get_tree().paused = true
+
+
 func _process(delta: float) -> void:
 	spawn_cooldown = max(0, spawn_cooldown - delta)
 	spawn_diamond()

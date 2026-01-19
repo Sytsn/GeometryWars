@@ -10,6 +10,7 @@ class_name Player extends CharacterBody2D
 @onready var world = $"../"
 @onready var shoot_timer: Timer = $ShootTimer  # Add Timer node as child
 @onready var dead_label = $Label
+@onready var death_menu = $DeathMenu
 
 var shoot_cooldown = 0.0
 
@@ -18,7 +19,9 @@ var is_dead: bool = false
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
-		dead_label.visible = true
+		death_menu.visible = true
+		print(death_menu.visible)
+		return
 	shoot_cooldown = max(0, shoot_cooldown - delta)  # Count down
 	get_input(delta)
 	move_and_slide()

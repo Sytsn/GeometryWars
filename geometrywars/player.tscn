@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvcapk1d3yg1j"]
+[gd_scene load_steps=6 format=3 uid="uid://dvcapk1d3yg1j"]
 
 [ext_resource type="Script" uid="uid://xav40dbpkqr0" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://coad1hs7d64an" path="res://Menus/death_menu.tscn" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 radius = 15.0
@@ -58,6 +59,8 @@ offset_right = 65.0
 offset_bottom = -176.0
 theme_override_font_sizes/font_size = 50
 text = "DEAD"
+
+[node name="DeathMenu" parent="." instance=ExtResource("2_onrkg")]
 
 [connection signal="body_entered" from="Pivot/PlayerAim" to="." method="_on_player_aim_body_entered"]
 [connection signal="body_exited" from="Pivot/PlayerAim" to="." method="_on_player_aim_body_exited"]
