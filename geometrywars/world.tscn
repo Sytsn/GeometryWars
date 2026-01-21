@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpnsyfr06tf3"]
+[gd_scene load_steps=10 format=3 uid="uid://cpnsyfr06tf3"]
 
 [ext_resource type="Script" uid="uid://dig1a6d4nqndq" path="res://world.gd" id="1_036b0"]
 [ext_resource type="PackedScene" uid="uid://dvcapk1d3yg1j" path="res://player.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://t8fy3lh76w3e" path="res://border_wall.gd" id="4_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://cy0yck5s8warl" path="res://Shader/water.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://4f03ex7hpjet" path="res://Menus/main_menu.tscn" id="7_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://t6ds4jcxrhhi" path="res://Enemies/FanBlade.tscn" id="7_ioo17"]
 [ext_resource type="Texture2D" uid="uid://ca5ofgho3xhwa" path="res://Assets/BOUYS.png" id="7_pkg7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
@@ -135,6 +136,67 @@ position = Vector2(932, 1097)
 rotation = 1.5708
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("7_pkg7o")
+
+[node name="FanBlade" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(693, 176)
+
+[node name="FanBlade2" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(781, 151)
+
+[node name="FanBlade3" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(967, 141)
+
+[node name="FanBlade4" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1124, 131)
+
+[node name="FanBlade5" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1238, 126)
+
+[node name="FanBlade6" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1278, 176)
+
+[node name="FanBlade7" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1314, 241)
+
+[node name="FanBlade8" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1194, 241)
+
+[node name="FanBlade9" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1122, 216)
+
+[node name="FanBlade10" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1035, 216)
+
+[node name="FanBlade11" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(949, 229)
+
+[node name="FanBlade12" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(839, 229)
+
+[node name="FanBlade13" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(743, 247)
+
+[node name="FanBlade14" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(646, 306)
+
+[node name="FanBlade15" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(798, 306)
+
+[node name="FanBlade16" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(961, 306)
+
+[node name="FanBlade17" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1077, 313)
+
+[node name="FanBlade18" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1171, 321)
+
+[node name="FanBlade19" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1254, 375)
+
+[node name="FanBlade20" parent="." instance=ExtResource("7_ioo17")]
+position = Vector2(1254, 375)
+collision_mask = 7
 
 [connection signal="body_entered" from="Border/BottomWall" to="Border" method="_on_bottom_wall_body_entered"]
 [connection signal="body_entered" from="Border/LeftWall" to="Border" method="_on_left_wall_body_entered"]
