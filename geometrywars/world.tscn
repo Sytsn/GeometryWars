@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpnsyfr06tf3"]
+[gd_scene load_steps=9 format=3 uid="uid://cpnsyfr06tf3"]
 
 [ext_resource type="Script" uid="uid://dig1a6d4nqndq" path="res://world.gd" id="1_036b0"]
 [ext_resource type="PackedScene" uid="uid://dvcapk1d3yg1j" path="res://player.tscn" id="1_fj7yv"]
-[ext_resource type="Texture2D" uid="uid://nopo3f04yt3h" path="res://icon.svg" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://t8fy3lh76w3e" path="res://border_wall.gd" id="4_pkg7o"]
-[ext_resource type="PackedScene" uid="uid://dqie8owgoxngu" path="res://Enemies/green_square.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://cy0yck5s8warl" path="res://Shader/water.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://4f03ex7hpjet" path="res://Menus/main_menu.tscn" id="7_gbfbk"]
-[ext_resource type="PackedScene" uid="uid://t6ds4jcxrhhi" path="res://Enemies/FanBlade.tscn" id="7_pkg7o"]
+[ext_resource type="Texture2D" uid="uid://ca5ofgho3xhwa" path="res://Assets/BOUYS.png" id="7_pkg7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(67, 1331)
@@ -17,15 +16,10 @@ b = Vector2(-576, 562)
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_036b0")
-spawn_points = [NodePath("SpawnPoints/Point1"), NodePath("SpawnPoints/Point2"), NodePath("SpawnPoints/Point3"), NodePath("SpawnPoints/Point4")]
+spawn_points = [NodePath("SpawnPoints/Point1"), NodePath("SpawnPoints/Point2"), NodePath("SpawnPoints/Point3"), NodePath("SpawnPoints/Point4"), NodePath("SpawnPoints/Point5"), NodePath("SpawnPoints/Point6"), NodePath("SpawnPoints/Point7"), NodePath("SpawnPoints/Point8")]
 
 [node name="Player" parent="." instance=ExtResource("1_fj7yv")]
 position = Vector2(960, 540)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(959.34, 541.268)
-scale = Vector2(-8.82347, 8.83111)
-texture = ExtResource("2_fj7yv")
 
 [node name="Border" type="StaticBody2D" parent="."]
 position = Vector2(960, 540)
@@ -91,54 +85,56 @@ position = Vector2(454, 1024)
 [node name="Point4" type="Node2D" parent="SpawnPoints"]
 position = Vector2(1449, 1038)
 
-[node name="GreenSquare" parent="." instance=ExtResource("5_036b0")]
-position = Vector2(1293, 943)
+[node name="Point5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(956, 889)
 
-[node name="GreenSquare2" parent="." instance=ExtResource("5_036b0")]
-position = Vector2(535, 96)
+[node name="Point6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(951, 216)
 
-[node name="GreenSquare3" parent="." instance=ExtResource("5_036b0")]
-position = Vector2(508, 893)
+[node name="Point7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(586, 521)
 
-[node name="GreenSquare4" parent="." instance=ExtResource("5_036b0")]
-position = Vector2(508, 390)
-
-[node name="GreenSquare5" parent="." instance=ExtResource("5_036b0")]
-position = Vector2(1130, 89)
-
-[node name="FanBlade" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(647, 148)
-
-[node name="FanBlade2" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(1042, 201)
-
-[node name="FanBlade3" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(638, 415)
-
-[node name="FanBlade4" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(1293, 307)
-
-[node name="FanBlade5" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(1332, 752)
-
-[node name="FanBlade6" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(1050, 846)
-
-[node name="FanBlade7" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(676, 851)
-
-[node name="FanBlade8" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(680, 663)
-
-[node name="FanBlade9" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(845, 869)
+[node name="Point8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1314, 530)
 
 [node name="MainMenu" parent="." instance=ExtResource("7_gbfbk")]
 z_index = 100
+z_as_relative = false
 offset_left = 960.0
 offset_top = 524.0
 offset_right = 960.0
 offset_bottom = 524.0
+
+[node name="ColorRect" parent="." instance=ExtResource("6_dwbse")]
+process_mode = 4
+z_index = -10
+offset_left = -778.0
+offset_top = -430.0
+offset_right = 2798.0
+offset_bottom = 1459.0
+mouse_filter = 2
+
+[node name="Bouys" type="Sprite2D" parent="."]
+position = Vector2(366, 562)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("7_pkg7o")
+
+[node name="Bouys2" type="Sprite2D" parent="."]
+position = Vector2(1517, 546)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("7_pkg7o")
+
+[node name="Bouys3" type="Sprite2D" parent="."]
+position = Vector2(911, -43)
+rotation = 1.5708
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("7_pkg7o")
+
+[node name="Bouys4" type="Sprite2D" parent="."]
+position = Vector2(932, 1097)
+rotation = 1.5708
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("7_pkg7o")
 
 [connection signal="body_entered" from="Border/BottomWall" to="Border" method="_on_bottom_wall_body_entered"]
 [connection signal="body_entered" from="Border/LeftWall" to="Border" method="_on_left_wall_body_entered"]

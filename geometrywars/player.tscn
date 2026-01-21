@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvcapk1d3yg1j"]
+[gd_scene load_steps=9 format=3 uid="uid://dvcapk1d3yg1j"]
 
 [ext_resource type="Script" uid="uid://xav40dbpkqr0" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://13lk358u4a2u" path="res://Bullets/DoubleBullet.tscn" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://coad1hs7d64an" path="res://Menus/death_menu.tscn" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://ds84stibue3pg" path="res://Bullets/triple_shot.tscn" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://bbwoc41lvpw6o" path="res://Assets/boat.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://b4kd0tj67fsct" path="res://Assets/cannon.png" id="5_2hs0m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 radius = 15.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_4flbx"]
 
@@ -22,24 +22,19 @@ bullet_array = Array[PackedScene]([ExtResource("2_i3pqv"), ExtResource("3_hqtel"
 shape = SubResource("CapsuleShape2D_4flbx")
 one_way_collision = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
-scale = Vector2(26.25, 25.875)
-mesh = SubResource("CapsuleMesh_4flbx")
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="CollisionShape2D/MeshInstance2D"]
-modulate = Color(0, 0, 0, 1)
-z_index = -1
-scale = Vector2(1.18095, 1.08213)
-mesh = SubResource("CapsuleMesh_4flbx")
+[node name="Boat" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-1.52588e-05, 2)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_sweqy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, -2)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.25, 1.25)
 
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Pivot"]
-position = Vector2(24, 2.38419e-07)
+position = Vector2(48, -1.49782e-11)
 rotation = -1.5708
 scale = Vector2(15.5, 10.5)
 mesh = SubResource("PrismMesh_4flbx")
@@ -52,18 +47,15 @@ collision_mask = 64
 position = Vector2(68, 0)
 polygon = PackedVector2Array(1159, 156, 1153, -151, -49, -20, -49, 19)
 
+[node name="Cannon" type="Sprite2D" parent="Pivot"]
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_2hs0m")
+
 [node name="ShootTimer" type="Timer" parent="."]
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -69.0
-offset_top = -245.0
-offset_right = 65.0
-offset_bottom = -176.0
-theme_override_font_sizes/font_size = 50
-text = "DEAD"
-
 [node name="DeathMenu" parent="." instance=ExtResource("2_onrkg")]
+visible = false
 
 [node name="Points" type="Label" parent="."]
 offset_left = -458.0

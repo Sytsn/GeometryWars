@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://dri5k1kw1tpbu" path="res://Enemies/green_square.gd" id="1_mb4rx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3turg"]
-radius = 7.81025
+radius = 9.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_3turg"]
-size = Vector2(28, 28)
+size = Vector2(18, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fsbr5"]
-radius = 17.0294
+radius = 10.0499
 
 [node name="GreenSquare" type="CharacterBody2D"]
 collision_layer = 195

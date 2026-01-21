@@ -6,11 +6,10 @@ class_name Player extends CharacterBody2D
 @export var bullet_array: Array[PackedScene]
 
 @onready var pivot: Node2D = $Pivot
-@onready var mesh: MeshInstance2D = $CollisionShape2D/MeshInstance2D
+@onready var mesh: Sprite2D = $CollisionShape2D/Boat
 @onready var bullet: PackedScene = preload("res://Bullets/DoubleBullet.tscn")
 @onready var world = $"../"
 @onready var shoot_timer: Timer = $ShootTimer  # Add Timer node as child
-@onready var dead_label = $Label
 @onready var death_menu = $DeathMenu
 @onready var points_label = $Points
 
@@ -35,7 +34,7 @@ func _physics_process(delta: float) -> void:
 func get_input(delta: float):
 	pivot.look_at(get_global_mouse_position())
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	mesh.rotation = input_direction.angle()
+	mesh.rotation = input_direction.angle() + deg_to_rad(90)
 	velocity = input_direction * speed
 
 func shoot():

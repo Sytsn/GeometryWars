@@ -6,10 +6,10 @@
 radius = 7.81025
 
 [sub_resource type="PrismMesh" id="PrismMesh_if4iv"]
-size = Vector3(28, 28, 1)
+size = Vector3(18, 18, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_if4iv"]
-radius = 17.0294
+radius = 8.24621
 
 [node name="FanBlade" type="CharacterBody2D"]
 collision_layer = 7
